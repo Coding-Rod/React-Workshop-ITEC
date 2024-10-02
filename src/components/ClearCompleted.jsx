@@ -1,5 +1,11 @@
-export function ClearCompleted () {
+export function ClearCompleted ({ clearCompleted }) {
     return (
-        <h1>ClearCompleted</h1>
+        <div className="clear-completed">
+            <button
+                onClick={clearCompleted}
+            >
+                Clear Completed
+            </button>
+        </div>
     )
 }

@@ -24,6 +24,11 @@ function App() {
     setTodos(newTodos)
   }
 
+  const clearCompleted = () => {
+    const newTodos = todos.filter(todo => !todo.completed)
+    setTodos(newTodos)
+  }
+
   return (
     <>
       <div className="card">
@@ -34,7 +39,7 @@ function App() {
         </div>
         <div className="footer">
           <Filters />
-          <ClearCompleted />
+          <ClearCompleted clearCompleted={clearCompleted} />
         </div>          
       </div>
     </>
