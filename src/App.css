@@ -75,3 +75,20 @@
   text-decoration: line-through;
   color: #777;
 }
+
+.filters {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.filters button {
+  padding: 0.5em 1em;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 2em;
+}

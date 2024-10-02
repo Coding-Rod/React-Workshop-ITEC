@@ -5,9 +5,12 @@ import { TodoList } from './components/TodoList'
 import { Filters } from './components/Filters'
 import { ClearCompleted } from './components/ClearCompleted'
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 function App() {
   const [todos, setTodos] = useState([])
+  const [filter, setFilter] = useState('all') // all, active, completed
+  const [filteredTodos, setFilteredTodos] = useState(todos)
 
   const addTodo = (todo) => {
     const newTodos = [...todos, { id: todos.length + 1, text: todo, completed: false }]
@@ -29,16 +32,29 @@ function App() {
     setTodos(newTodos)
   }
 
+  useEffect(() => {
+    switch (filter) {
+      case 'active':
+        setFilteredTodos(todos.filter(todo => !todo.completed))
+        break
+      case 'completed':
+        setFilteredTodos(todos.filter(todo => todo.completed))
+        break
+      default:
+        setFilteredTodos(todos)
+    }
+  }, [todos, filter]) // When todos or filter change, run this effect
+
   return (
     <>
       <div className="card">
         <div className="title">TODO App</div>
         <div className="content">
           <AddTodo addTodo={addTodo} />
-          <TodoList todos={todos} setCompleted={setCompleted} />
+          <TodoList todos={filteredTodos} setCompleted={setCompleted} />
         </div>
         <div className="footer">
-          <Filters />
+          <Filters setFilter={setFilter} />
           <ClearCompleted clearCompleted={clearCompleted} />
         </div>          
       </div>
