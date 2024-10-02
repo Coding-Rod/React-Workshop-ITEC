@@ -1,10 +1,10 @@
 import { useState } from "react"
 
-export function AddTodo () {
+export function AddTodo ({ addTodo }) {
     const [todo, setTodo] = useState('') // Works as getter and setter
 
-    const handleAddTodo = (value) => {
-        setTodo(value) // Executes the setter
+    const handleAddTodo = () => {
+        addTodo(todo);
     }
 
     return (
@@ -13,10 +13,13 @@ export function AddTodo () {
                 type="text" 
                 placeholder="Add a new todo..." 
                 value={todo} 
-                onChange={(e) => handleAddTodo(e.target.value)}
+                onChange={(e) => setTodo(e.target.value)}
             />
             {/* <span>{todo}</span> */}
-            <button>Add</button>
+            <button
+                onClick={handleAddTodo}
+            >
+                Add</button>
         </div>
     )
 }
