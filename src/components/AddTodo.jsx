@@ -5,6 +5,7 @@ export function AddTodo ({ addTodo }) {
 
     const handleAddTodo = () => {
         addTodo(todo);
+        setTodo('');
     }
 
     return (

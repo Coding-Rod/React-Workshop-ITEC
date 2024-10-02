@@ -14,13 +14,23 @@ function App() {
     setTodos(newTodos)
   }
 
+  const setCompleted = (id) => {
+    const newTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return { ...todo, completed: !todo.completed }
+      }
+      return todo
+    })
+    setTodos(newTodos)
+  }
+
   return (
     <>
       <div className="card">
         <div className="title">TODO App</div>
         <div className="content">
           <AddTodo addTodo={addTodo} />
-          <TodoList />
+          <TodoList todos={todos} setCompleted={setCompleted} />
         </div>
         <div className="footer">
           <Filters />
