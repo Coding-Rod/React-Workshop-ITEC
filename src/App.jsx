@@ -11,9 +11,10 @@ function App() {
   const { todos, addTodo, setCompleted, clearCompleted, setFilter } = useTodos() 
 
   return (
+
     <>
       <div className="card">
-        <div className="title">TODO App</div>
+        <div className="title">TO-DO App</div>
         <div className="content">
           <AddTodo addTodo={addTodo} />
           <TodoList todos={todos} setCompleted={setCompleted} />

@@ -12,6 +12,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.title {
+  margin: 0;
+  color: white;
+  font-size: 2em;
+  font-weight: 700;
+}
+
 .add-todo {
   display: flex;
   gap: 1em;
